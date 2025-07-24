@@ -32,12 +32,8 @@ class Player(CircleShape):
     def shoot(self, dt):
         player_triangle = self.triangle()
         tip = player_triangle[0]
-        left_tip = player_triangle[1]
-        right_tip = player_triangle[2]
         velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
         Shot(tip.x, tip.y, SHOT_RADIUS, velocity)
-        Shot(left_tip.x, left_tip.y, SHOT_RADIUS, velocity.rotate(-90))
-        Shot(right_tip.x, right_tip.y, SHOT_RADIUS, velocity.rotate(90))
 
     def update(self, dt):
         keys = pygame.key.get_pressed()
